@@ -1,0 +1,5 @@
+import { Trash2 } from 'lucide-react'
+
+export default function ConfirmDialog({ title, description, onCancel, onConfirm }) {
+  return <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/35 p-4 backdrop-blur-[3px]" onMouseDown={e => { if (e.target === e.currentTarget) onCancel() }}><div role="alertdialog" aria-modal="true" className="w-full max-w-sm rounded-2xl bg-white p-5 shadow-2xl sm:p-6"><div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-rose-50 text-rose-600"><Trash2 size={20}/></div><h2 className="text-base font-bold text-slate-900">{title}</h2><p className="mt-2 text-sm leading-6 text-slate-500">{description}</p><div className="mt-6 flex justify-end gap-2"><button onClick={onCancel} className="rounded-xl border border-slate-200 px-3.5 py-2.5 text-sm font-semibold text-slate-600 hover:bg-slate-50">Cancel</button><button onClick={onConfirm} className="rounded-xl bg-rose-600 px-3.5 py-2.5 text-sm font-semibold text-white hover:bg-rose-700">Delete task</button></div></div></div>
+}
